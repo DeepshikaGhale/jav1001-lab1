@@ -1,9 +1,18 @@
 fun main(){
-    print("Please enter a number:")
+    var inputNumber = 0f
 
-    var input = readLine()
-    var inputNumber = input!!.toFloat()
+    var isInputValid: Boolean = false
 
+    while (!isInputValid){
+        print("Please enter a number:")
+        val stringInput = readLine()
+        try {
+            inputNumber = stringInput!!.toFloat()
+            isInputValid = true
+        }catch (e: NumberFormatException){
+            println("Please enter a valid data to convert.")
+        }
+    }
 
     print("Enter unit of measurement:")
     var unitOfMeasurement = readLine()
