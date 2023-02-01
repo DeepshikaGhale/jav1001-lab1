@@ -1,18 +1,6 @@
 fun main(){
-    var inputNumber = 0f
 
-    var isInputValid: Boolean = false
-
-    while (!isInputValid){
-        print("Please enter a number:")
-        val stringInput = readLine()
-        try {
-            inputNumber = stringInput!!.toFloat()
-            isInputValid = true
-        }catch (e: NumberFormatException){
-            println("Please enter a valid data to convert.")
-        }
-    }
+    var inputNumber = getInputNumber()
 
     print("Enter unit of measurement:")
     var unitOfMeasurement = readLine()
@@ -39,3 +27,32 @@ fun main(){
 
     println(result)
 }
+
+
+//get input number
+fun getInputNumber(): Float {
+    //collect the input number
+    var input = 0f
+
+    //validate if the input if number or not
+    var isInputValid: Boolean = false
+
+    //loop runs until the input is valid
+    while (!isInputValid) {
+        print("Please enter a number:")
+        val stringInput = readLine() //get input from user
+        //handle exception
+        try {
+            //convert input to float
+            input = stringInput!!.toFloat()
+            isInputValid = true //validate the input
+        } catch (e: NumberFormatException) {
+            //prints in case of exception
+            println("Please enter a valid data to convert.")
+        }
+    }
+    return input
+}
+
+
+
